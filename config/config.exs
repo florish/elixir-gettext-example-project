@@ -17,6 +17,13 @@ config :aaa, AaaWeb.Endpoint,
   render_errors: [view: AaaWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: Aaa.PubSub, adapter: Phoenix.PubSub.PG2]
 
+# Configures the endpoint
+config :aaa, BbbWeb.Endpoint,
+  url: [host: "localhost"],
+  secret_key_base: "vlnYb500gy5nkwJLqcE81L4/j/4Pbov7MiCG3lrU0u/euB+ixce8TEkmqwG9xVCU",
+  render_errors: [view: BbbWeb.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: Bbb.PubSub, adapter: Phoenix.PubSub.PG2]
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",

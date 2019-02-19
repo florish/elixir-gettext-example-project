@@ -21,6 +21,21 @@ config :aaa, AaaWeb.Endpoint,
     ]
   ]
 
+config :aaa, BbbWeb.Endpoint,
+  http: [port: 4001],
+  debug_errors: true,
+  code_reloader: true,
+  check_origin: false,
+  watchers: [
+    node: [
+      "node_modules/webpack/bin/webpack.js",
+      "--mode",
+      "development",
+      "--watch-stdin",
+      cd: Path.expand("../assets", __DIR__)
+    ]
+  ]
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
@@ -53,6 +68,17 @@ config :aaa, AaaWeb.Endpoint,
       ~r{priv/gettext/.*(po)$},
       ~r{lib/aaa_web/views/.*(ex)$},
       ~r{lib/aaa_web/templates/.*(eex)$}
+    ]
+  ]
+
+# Watch static and templates for browser reloading.
+config :aaa, BbbWeb.Endpoint,
+  live_reload: [
+    patterns: [
+      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
+      ~r{priv/gettext/.*(po)$},
+      ~r{lib/bbb_web/views/.*(ex)$},
+      ~r{lib/bbb_web/templates/.*(eex)$}
     ]
   ]
 

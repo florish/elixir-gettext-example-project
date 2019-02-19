@@ -10,8 +10,9 @@ defmodule Aaa.Application do
     children = [
       # Start the Ecto repository
       Aaa.Repo,
-      # Start the endpoint when the application starts
-      AaaWeb.Endpoint
+      # Start the endpoints when the application starts
+      AaaWeb.Endpoint,
+      BbbWeb.Endpoint
       # Starts a worker by calling: Aaa.Worker.start_link(arg)
       # {Aaa.Worker, arg},
     ]
